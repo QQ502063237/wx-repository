@@ -29,7 +29,7 @@ public class WeiXinController {
     @RequestMapping( method = RequestMethod.GET)
     public void get(HttpServletRequest request , HttpServletResponse response) throws Exception {
         String token = TokenUtil.getToken().getAccessToken();
-        System.out.println("token是-----"+token);
+        System.out.println("token是--...---"+token);
         System.out.println("进入get 按钮right是:"+ButtonConfig.getRight());
         String echostr = request.getParameter("echostr");
         PrintWriter out = response.getWriter();
