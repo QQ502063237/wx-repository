@@ -15,7 +15,7 @@ public class ResponseMessage {
 
     //根据 请求内容,和设置类型, 设置响应数据 创建响应文本对象返回
     public static  String getResponse( Map<String ,String> requestMap,BasicResponseMessage responseMessageSql){
-            String xml="success";
+            String xml="";
             //响应数据类型
             switch (responseMessageSql.getMsgType()){
                 //响应文本消息
@@ -42,6 +42,8 @@ public class ResponseMessage {
                     responseMessageSql.setFromUserName(requestMap.get("ToUserName"));
                     xml=beanToXml(newsResponseMessage);
                     break;
+                case "event":
+
                 default:
                     break;
             }
