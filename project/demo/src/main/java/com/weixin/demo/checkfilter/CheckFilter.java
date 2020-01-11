@@ -36,6 +36,9 @@ public class CheckFilter implements HandlerInterceptor {
         String timestamp = request.getParameter("timestamp");
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
+        if(signature==null||timestamp==null||nonce==null||echostr==null){
+            return  false;
+        }
         //校验请求
         boolean flag = CheckRequest.checkFilter(timestamp, nonce, signature);
         //判断请求
