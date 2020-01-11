@@ -3,10 +3,8 @@ package com.weixin.demo.controller;
 
 
 
-import com.weixin.demo.config.ButtonConfig;
-import com.weixin.demo.entity.Article;
+import com.weixin.demo.config.MenuConfig;
 import com.weixin.demo.entity.BasicResponseMessage;
-import com.weixin.demo.entity.NewsResponseMessage;
 import com.weixin.demo.entity.TextResponseMessage;
 import com.weixin.demo.utils.RequestMessage;
 import com.weixin.demo.utils.ResponseMessage;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Map;
 
 
@@ -29,7 +26,7 @@ public class WeiXinController {
     public void get(HttpServletRequest request , HttpServletResponse response) throws Exception {
         String token = TokenUtil.getToken().getAccessToken();
         System.out.println("token是--...---"+token);
-        System.out.println("进入get 按钮right是:"+ButtonConfig.getRight());
+        System.out.println("进入get 按钮right是:"+ MenuConfig.getRight());
         String echostr = request.getParameter("echostr");
         PrintWriter out = response.getWriter();
         out.print(echostr);
@@ -44,6 +41,7 @@ public class WeiXinController {
         response.setCharacterEncoding("UTF-8");
         //将post请求流处理成map
         Map<String, String> requestMap = RequestMessage.requestMap(request);
+        String signature = request.getParameter("signature");
         System.out.println("post方法"+requestMap);
         PrintWriter out = response.getWriter();
         String event = requestMap.get("Event");

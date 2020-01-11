@@ -4,7 +4,7 @@ public class ViewButton extends  AbstractButton {
     private String url;
     private  String type="view";
 
-    public ViewButton(String url,String name) {
+    public ViewButton(String name,String url) {
         super(name);
         this.url = url;
     }
