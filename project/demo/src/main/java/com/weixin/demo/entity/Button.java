@@ -14,11 +14,4 @@ public class Button  {
     public Button() {
     }
 
-    public List<AbstractButton> getButton() {
-        return button;
-    }
-
-    public void setButton(List<AbstractButton> button) {
-        this.button = button;
-    }
 }
