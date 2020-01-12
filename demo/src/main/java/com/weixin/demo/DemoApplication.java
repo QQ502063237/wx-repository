@@ -17,7 +17,7 @@ public class DemoApplication {
         String result = Menu.setButtons();
         JSONObject json = JSON.parseObject(result);
         if("ok".equals(json.get("errmsg"))){
-            logger.info("初始化菜单成功...----");
+            logger.info("初始化菜单成功...ssss");
         }else {
             logger.info("初始化菜单失败...");
         }
