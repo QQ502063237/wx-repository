@@ -1,81 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="574e86bc-2057-4f27-b89e-f21d6cd71bf7" name="Default Changelist" comment="修改目录提">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="574e86bc-2057-4f27-b89e-f21d6cd71bf7" name="Default Changelist" comment="提交静态资源">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/demo/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/button.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/token.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/token.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/test/java/com/weixin/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/test/java/com/weixin/demo/DemoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/DemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/ServletInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/checkfilter/CheckFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/checkfilter/CheckRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/config/AccessTokenConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/config/MenuConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/controller/WeiXinController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/AbstractButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/AccessToken.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/Article.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/BasicResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/Button.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/ClickButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/NewsResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/SubButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/TextResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/entity/ViewButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/CheckRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/HttpClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/RequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/ResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/java/com/weixin/demo/utils/TokenUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/resources/button.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/main/resources/token.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/demo/src/test/java/com/weixin/demo/DemoApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/ngrok.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/ngrok.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/ngrok.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/ngrok.log.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/小米球Ngrok一键启动工具.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/windows_amd64/windows_amd64/配置参考.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/火锅导图.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/火锅导图/个人中心.emmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/火锅导图/分工.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/火锅导图/加盟.emmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/火锅导图/商城.emmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/ngrok.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/ngrok.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/ngrok.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/ngrok.log.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/小米球Ngrok一键启动工具.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows_amd64/windows_amd64/配置参考.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +31,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/src/main/resources/templates" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\project\demo\src\main\java\com\weixin\demo\utils" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\project\demo\src\main\resources\templates" />
+      <recent name="D:\projects\project\demo\src\main\resources\static" />
       <recent name="D:\projects\project\demo\src\main\resources" />
     </key>
   </component>
@@ -142,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578794850199</updated>
-      <workItem from="1578794851690" duration="2893000" />
+      <workItem from="1578794851690" duration="9613000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录提交">
       <created>1578795769282</created>
@@ -158,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578795784688</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加静态资源">
+      <created>1578813283657</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1578813283657</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +117,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改目录提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改目录提交" />
+    <MESSAGE value="添加静态资源" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加静态资源" />
   </component>
 </project>
