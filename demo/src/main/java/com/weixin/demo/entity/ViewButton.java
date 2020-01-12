@@ -2,19 +2,30 @@ package com.weixin.demo.entity;
 
 public class ViewButton extends  AbstractButton {
     private String url;
+    private  String type="view";
 
-    public ViewButton(String url) {
-        this.type="view";
+    public ViewButton(String name,String url) {
+        super(name);
         this.url = url;
     }
 
+    public ViewButton() {
+    }
 
     public String getUrl() {
         return url;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

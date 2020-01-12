@@ -9,7 +9,7 @@ public class CheckRequest implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //super.addInterceptors(registry);
-        //拦截所有请求
+        //拦截所有请求, (提供接口的请求不需要过滤器校验 ,添加白名单)
         registry.addInterceptor(new CheckFilter()).addPathPatterns("/**");
     }
 }

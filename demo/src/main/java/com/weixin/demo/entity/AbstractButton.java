@@ -9,6 +9,8 @@ public  abstract class AbstractButton {
 
     public AbstractButton() {
     }
+
+
     public String getName() {
         return name;
     }
@@ -20,7 +22,6 @@ public  abstract class AbstractButton {
     @Override
     public String toString() {
         return "AbstractButton{" +
-
                 ", name='" + name + '\'' +
                 '}';
     }

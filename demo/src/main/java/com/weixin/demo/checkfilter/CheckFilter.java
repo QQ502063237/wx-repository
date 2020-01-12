@@ -36,14 +36,18 @@ public class CheckFilter implements HandlerInterceptor {
         String timestamp = request.getParameter("timestamp");
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
+        if(signature==null||timestamp==null||nonce==null){
+            System.out.println("进入controller方法之前调用------参数为null" );
+            return  false;
+        }
         //校验请求
         boolean flag = CheckRequest.checkFilter(timestamp, nonce, signature);
         //判断请求
         if (!flag){
-            System.out.println("进入controller方法之前调用--------非公众号请求" );
+            System.out.println("进入controller方法之前调用-验证失败" );
             return  false;
         }
-        System.out.println("进入controller方法之前调用-------公众号请求" +signature+timestamp+nonce+echostr);
+        System.out.println("进入controller方法之前调用---- 验证成功" +signature+timestamp+nonce+echostr);
         return true;
     }
 
