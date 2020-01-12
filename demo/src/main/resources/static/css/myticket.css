@@ -1,0 +1,35 @@
+body{
+	margin: 0px;
+
+}
+/*优惠券盒子*/
+.couponBox{
+	margin: 4% auto 6%;
+	width: 100%;
+	height: 360px;
+	background-color: #222222;
+	box-shadow: 0 0 30px gray;
+	border-radius:20px ;
+}
+/*优惠券*/
+.coupon{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/youhuiquan-org.png);
+	width: 80%;
+	height: 360px;
+	color: white;
+	line-height: 160px;
+	padding-top: 20%;
+	padding-left: 20%;
+	font-size: 100px;
+}
+.have_none{
+	color: white;
+	line-height: 360px;
+	text-align: center;
+	font-size: 70px;
+}
+.tickets_number{
+	font-size: 50px;
+}
