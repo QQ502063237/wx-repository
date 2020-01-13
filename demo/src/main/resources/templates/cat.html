@@ -89,6 +89,56 @@
 		<!-- js -->
 		<script src="../js/jquery-1.12.2.js"></script>
 		<script type="text/javascript" src="../js/cat.js"></script>
-		<script type="text/javascript" src="../js/ionic.bundle.min.js" ></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+<!--		<script type="text/javascript" src="../js/ionic.bundle.min.js" ></script>-->
+
+		<script>
+			var vm=new Vue({
+				//vue对象id
+				el:"#goods_list",
+
+				data:{
+					list:[]
+				},
+				methods:{
+					getlist:function(){
+						var _this=this;
+						$.ajax({
+							type:"get",
+							url:"http://mock-api.com/NnX5vwKy.mock/get_goods_list",
+							async:true,
+							dataType:"json",
+							success:function(data){
+								_this.list=data
+								alert(JSON.stringify(data))
+							}
+						});
+					}
+
+
+
+
+				},
+
+				//加载就会调用里面的方法
+				created:function(){
+					this.getlist();
+				}
+
+
+
+			});
+
+
+
+
+
+
+		</script>
+
+
+
+
+
 	</body>
 </html>
