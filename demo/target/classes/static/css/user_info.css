@@ -1,0 +1,78 @@
+.user_info{
+	height: 150px;
+	/*background-color: paleturquoise;*/
+	width: 100%;
+	
+}
+body{
+	margin: 0px;
+	background-color: whitesmoke;
+}
+.picture_frame{
+	border-radius: 75px;
+	background: red;
+	width: 75px;
+	height: 75px;
+	overflow: hidden;
+	position: relative;
+	top: 25%;
+	left: 8%;
+	float: left;	
+}
+.username{
+	height: 50px;	
+	float: left;
+	margin-left: 65px;
+	margin-top: 65px;	
+}
+.members_show{
+	float: left;
+	background-color: NavajoWhite;
+	/*border: solid 1px red;*/
+	height: 25px;
+	width: 100px;
+	margin-top: 65px;
+	margin-left: 20px;
+	border-radius:25px;
+}
+.icon{
+	float: left;
+}
+.property{
+	width: 95%;
+	height: 80px;	
+	margin-left: 10px;
+}
+.preferential{
+	width: 50%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	line-height: 80px;
+	
+	background-color:white;
+	border-radius: 10px;
+	margin-top: 10px;
+}	
+.money{
+	width: 49%;
+	float: right;
+	height: 80px;	
+	line-height: 80px;
+	text-align: center;
+	background-color:white;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+.money img{
+	width: 30px;
+	margin-right: 5%;
+}
+.property img{	
+	margin-right: 5%;	
+}
+button{
+	border-radius: 10px;
+	background-color: #00EE76;
+	border: none;	
+}
