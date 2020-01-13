@@ -1,0 +1,11 @@
+2020-01-12 12:32:45.465  INFO 6180 --- [main] com.weixin.demo.DemoApplication          : Starting DemoApplication on GOS-01904221622 with PID 6180 (D:\projects\project\demo\target\classes started by Administrator in D:\projects\project)
+2020-01-12 12:32:45.469  INFO 6180 --- [main] com.weixin.demo.DemoApplication          : No active profile set, falling back to default profiles: default
+2020-01-12 12:32:47.113  INFO 6180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2020-01-12 12:32:47.123  INFO 6180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-12 12:32:47.124  INFO 6180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-01-12 12:32:47.232  INFO 6180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-12 12:32:47.232  INFO 6180 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1629 ms
+2020-01-12 12:32:47.409  INFO 6180 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-12 12:32:47.563  INFO 6180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-01-12 12:32:47.566  INFO 6180 --- [main] com.weixin.demo.DemoApplication          : Started DemoApplication in 2.664 seconds (JVM running for 3.613)
+2020-01-12 12:32:48.592  INFO 6180 --- [main] com.weixin.demo.DemoApplication          : 初始化菜单成功...
