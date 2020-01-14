@@ -32,8 +32,8 @@
 							<em aem="0" cart_id="84"></em>
 							<div class="clear"></div>
 						</div>
-						<!--商品-->
-						<ul class="commodity_list_term">
+						<!--商品集合  goods_list-->
+						<ul class="commodity_list_term" id="goods_list">
 							<li class="select">
 								<em aem="0" cart_id="84"></em>
 								<img src="../images/火锅3.jpg" />
@@ -49,6 +49,7 @@
 									<i onclick="plusw(this)">+</i>
 								</div>
 							</li>
+
 							<li class="select">
 								<em aem="0" cart_id="84"></em>
 								<img src="../images/火锅4.jpg" />
@@ -89,6 +90,39 @@
 		<!-- js -->
 		<script src="../js/jquery-1.12.2.js"></script>
 		<script type="text/javascript" src="../js/cat.js"></script>
-		<script type="text/javascript" src="../js/ionic.bundle.min.js" ></script>
+		<!--引入vue-->
+		<script src="../js/vue.js"></script>
+		<!---ajax接口调用数据渲染-->
+		<script>
+			var vm=new Vue({
+				//vue对象id
+				el:"#goods_list",
+				//加载就会调用里面的方法
+				create:function(){
+					this.al();
+
+
+				},
+				data:{
+
+				},
+				methods:{
+					//方法1
+					al:function(){
+						alert("al方法")
+					}
+
+
+
+				},
+
+
+			});
+
+
+
+
+		</script>
 	</body>
+
 </html>
