@@ -1,0 +1,54 @@
+#pointShow{
+	width: 100%;
+	height: 500px;
+	background-image: url(../img/pointBackground.png);
+	background-size: 100% 100%;
+}
+
+#pointShow div{
+	color: darkkhaki;
+}
+
+#pointCount{
+	padding-top: 90px;
+	width: 100%;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 80px;
+}
+
+#pointCountText{
+	width: 100%;
+	text-align: center;
+	font-size: 50px;
+}
+
+#pointExchange{
+	margin: auto;
+	margin-top: 90px;
+	width: 20%;
+	height: 55px;
+	font-size: 40px;
+	border-radius: 50px;
+	border: 4px darkkhaki solid;
+}
+
+#pointExchangeText{
+	padding-left: 9%;
+}
+
+#detailChoose{
+	margin-top: 10px;
+	font-size: 50px;
+}
+
+#detailChoose>div{
+	float: left;
+	margin-left: 17%;
+}
+
+#myHr{
+	margin-top: 100px;
+	width: 100%;
+	border: 1px gainsboro solid;
+}
