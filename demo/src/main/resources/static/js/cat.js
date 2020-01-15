@@ -9,7 +9,7 @@ var cart_id = new Object();
 //备份商品ID，用于全选后去掉全选又再次全选
 var cart_id_copy = new Object();
 var noX = 0; /* 没选中时点击加减计算数量  */
-var allThis = $(".commodity_box .select em"); /*底部全选*/
+
 /* 减  */
 function reduceMod(e, totalH, mod, noX) {
 	var tn = e.siblings().find(".qu_su").text(); /* 当前选中商品  */
@@ -102,7 +102,9 @@ function commodityWhole() {
 	$("#total_price b").text(TotalJe.toFixed(2)); /* 合计金额  */
 };
 //选择结算商品
-$(".select em").click(function() {
+$(".commodity_list_term").on('click', 'em',function(){
+
+//$(".select em").click(function() {
 	var su = $(this).attr("aem");
 	var carts_id = $(this).attr("cart_id");
 	var totalH = $("#total_price b").text(); /* 合计金额  */
@@ -164,10 +166,13 @@ $(".select em").click(function() {
 /* 底部全选  */
 var bot = 0;
 $("#all_pitch_on").click(function() {
+	var allThis = $(".commodity_box .select em"); /*底部全选*/
 	if(bot == 0) {
 		$(this).addClass("pitch_on");
 		allThis.removeClass("pitch_on");
 		allThis.addClass("pitch_on");
+	
+	
 		/*总价格*/
 		commodityWhole();
 		bot = 1;
@@ -176,7 +181,7 @@ $("#all_pitch_on").click(function() {
 			cart_id[key] = "";
 		}
 	} else {
-		$(this).removeClass("pitch_on");
+		$("#all_pitch_on").removeClass("pitch_on");
 		allThis.removeClass("pitch_on");
 		$("#total_price b").text("0");
 		bot = 0;
@@ -224,6 +229,7 @@ function reducew(obj) {
 	var totalH = $("#total_price b").text(); /* 合计金额  */
 	var ise = $this.siblings("span").text();
 	var gc_id = $this.siblings("input").val();
+	var n=ise;
 	if(noX <= 0) {
 		noX = 0;
 	} else {
@@ -232,7 +238,7 @@ function reducew(obj) {
 	if(parseInt(ise) <= 1) {
 		$this.siblings("span").text("1");
 	} else {
-		var n = parseInt(ise) - 1;
+		n = parseInt(ise) - 1;
 		$this.siblings("span").text(n);
 		if($this.parent().parent().children("em").hasClass("pitch_on")) {
 			var mo = $this.parent().parent().children("em");
@@ -240,6 +246,8 @@ function reducew(obj) {
 			noX = 0;
 		}
 	}
+	//调用 ajax减数据库 -数量
+	sub($this,n);
 };
 
 function plusw(obj) {
@@ -257,9 +265,61 @@ function plusw(obj) {
 		plusMod(mo, totalH, 2, noX);
 		noX = 0;
 	}
+	
+	//调用 ajax加数据库,+数量
+	add($this,n);
 }
 //删除 
-function big_cart_remove() {
+function big_cart_remove( obj) {
+	delete_cartId();
 	$(".commodity_list_term .pitch_on").parent().remove();
 	$(".commodity_list .tite_tim > em.pitch_on").parents(".commodity_box").remove();
+
+}
+
+
+
+
+
+
+//删除 时候,把选中的cartId取出来,传入后端删除  ajax
+function delete_cartId(){
+	var emList=$(".commodity_list_term em");
+		for(var i=0;i<emList.length;i++){
+			if(emList[i].className=="pitch_on"){
+					//获取cart_Id
+				var cartId=(emList[i].getAttribute("cart_id"));
+				alert("删除的Id"+cartId);
+			}
+		}
+	
+}
+
+
+//添加数量后台修改
+function add(obj,n){
+	var em=obj.parent().parent().children("em").eq(0);
+	var cartId=em.attr("cart_id");
+	http://mock-api.com/NnX5vwKy.mock/add
+	
+	
+//获取 cartId 和数量更新购物车里的数量
+//	$.ajax({
+//		type:"get",
+//		url:"",
+//		async:true
+//	});
+	alert(cartId);
+	alert("+更新数量"+n);
+	
+}
+
+//减少数量后台修改
+function sub(obj,n){
+	var em=obj.parent().parent().children("em").eq(0);
+	var cartId=em.attr("cart_id");
+	http://mock-api.com/NnX5vwKy.mock/sub
+	//获取 cartId 和数量更新购物车里的数量
+	alert(cartId);
+	alert("-更新数量"+n);
 }
