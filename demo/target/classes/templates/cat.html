@@ -34,36 +34,9 @@
 						</div>
 						<!--商品-->
 						<ul class="commodity_list_term">
-							<li class="select">
-								<em aem="0" cart_id="84"></em>
-								<img src="../images/火锅3.jpg" />
-								<div class="div_center">
-									<h4>大红袍火锅底料</h4>
-									<span>微辣</span>
-									<p class="now_value"><i>￥</i><b class="qu_su">20.00</b></p>
-								</div>
-								<div class="div_right">
-									<i onclick="reducew(this)">-</i>
-									<span class="zi">1</span>
-									<input type="hidden" value="84">
-									<i onclick="plusw(this)">+</i>
-								</div>
-							</li>
-							<li class="select">
-								<em aem="0" cart_id="84"></em>
-								<img src="../images/火锅4.jpg" />
-								<div class="div_center">
-									<h4>秋霞火锅底料</h4>
-									<span>特辣</span>
-									<p class="now_value"><i>￥</i><b class="qu_su">10.00</b></p>
-								</div>
-								<div class="div_right">
-									<i onclick="reducew(this)">-</i>
-									<span class="zi">1</span>
-									<input type="hidden" value="84">
-									<i onclick="plusw(this)">+</i>
-								</div>
-							</li>
+						
+							
+							
 						</ul>
 					</div>
 				</div>
@@ -90,5 +63,88 @@
 		<script src="../js/jquery-1.12.2.js"></script>
 		<script type="text/javascript" src="../js/cat.js"></script>
 		<script type="text/javascript" src="../js/ionic.bundle.min.js" ></script>
+		
+		<script>
+			$(function() {
+				//调用获取数据方法
+				getData();
+			
+			});
+		
+					
+		
+						
+			/*获取全部数据渲染方法*/
+			function getData(){
+					$.ajax({
+					    url : "http://mock-api.com/NnX5vwKy.mock/getData",
+					    type : 'GET',
+					    dataType : 'json',
+					    data:{name1:"name1"},
+					    success : function(data) {
+					        console.log(JSON.stringify(data));
+					        //对象.list属性是一个集合[{},{}],赋值给json
+					         var list = data.list;
+					      	//获取form表单里面的ul第一个对象
+					      	var ulList=$("#cart_form").find("ul").eq(0);
+					      	var str="";
+					         $.each(list, function(idx, obj) {
+					         	str=str+
+					         	'<li class="select">'+'<em aem="0" cart_id="'+obj.cartId+'"></em>'+
+					         		'<img src="'+obj.url+'" />'+
+					         			'<div class="div_center">'+
+											'<h4>'+obj.name+'</h4>'+
+//											<span>微辣</span>
+											'<p class="now_value"><i>￥</i><b class="qu_su">'+obj.money+'</b></p>'+
+										'</div>'+
+										'<div class="div_right">'+
+											'<i onclick="reducew(this)">-</i>'+
+											'<span class="zi">'+obj.number+'</span>'+
+											'<input type="hidden" value="84">'+
+											'<i onclick="plusw(this)">+</i>'+
+										'</div>'+
+					         	'</li>';
+							});
+							ulList.append(str);
+						},
+					    error : function(msg) {
+					    	console.log("渲染数据异常");
+			    		}	
+					});
+			}
+			
+			//点击结算提交 ,获取所有购物车 单号发送后端
+			$("#confirm_cart").click(function(){
+				//创建被选中数组
+				var chickList=new Array();
+				//得到所有em对象
+				var emList=$(".commodity_list_term em");
+				for(var i=0;i<emList.length;i++){
+					if(emList[i].className=="pitch_on"){
+							//获取cart_Id
+						var cartId=(emList[i].getAttribute("cart_id"));
+						alert("结算的的id"+cartId)
+						
+					}
+				}
+			
+			});
+		
+								
+	
+	
+
+			
+
+				
+	
+				
+
+
+		</script>
+		
+		
+		
+		
 	</body>
 </html>
