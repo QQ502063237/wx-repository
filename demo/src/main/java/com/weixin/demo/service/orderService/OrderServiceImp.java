@@ -1,0 +1,16 @@
+package com.weixin.demo.service.orderService;
+
+import com.weixin.demo.entity.order.Order;
+import com.weixin.demo.mapper.OrderMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class OrderServiceImp implements OrderService {
+    @Autowired
+    OrderMapper orderMapper;
+
+    @Override
+    public int insertOrder(Order order) {
+        int flag = orderMapper.insert(order);
+        return flag;
+    }
+}

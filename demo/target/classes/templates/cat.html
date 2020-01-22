@@ -70,10 +70,7 @@
 				getData();
 			
 			});
-		
-					
-		
-						
+
 			/*获取全部数据渲染方法*/
 			function getData(){
 					$.ajax({
@@ -81,6 +78,7 @@
 					    type : 'GET',
 					    dataType : 'json',
 					    data:{name1:"name1"},
+						async:true,
 					    success : function(data) {
 					        console.log(JSON.stringify(data));
 					        //对象.list属性是一个集合[{},{}],赋值给json
@@ -123,22 +121,26 @@
 					if(emList[i].className=="pitch_on"){
 							//获取cart_Id
 						var cartId=(emList[i].getAttribute("cart_id"));
-						alert("结算的的id"+cartId)
-						
+						chickList.push({carId:cartId,carNum:null,weChatNum:null,productId:null})
 					}
+				};
+				if(chickList.length>0){
+					$.ajax({
+						url: "http://localhost/shoppingCar/account",
+						type: 'post',
+						contentType:'application/json',
+						dataType:'json',
+						async:true,
+						data:JSON.stringify(chickList),
+						success: function (data) {
+							console.log(data.code);
+						}
+					});
+				}else {
+					alert("购物车没有商品")
 				}
 			
 			});
-		
-								
-	
-	
-
-			
-
-				
-	
-				
 
 
 		</script>

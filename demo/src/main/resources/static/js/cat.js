@@ -282,44 +282,67 @@ function big_cart_remove( obj) {
 
 
 
-//删除 时候,把选中的cartId取出来,传入后端删除  ajax
+//删除 时候,把选中的cartId取出来,数组对象
 function delete_cartId(){
 	var emList=$(".commodity_list_term em");
+	var carList=new Array();
 		for(var i=0;i<emList.length;i++){
 			if(emList[i].className=="pitch_on"){
 					//获取cart_Id
 				var cartId=(emList[i].getAttribute("cart_id"));
-				alert("删除的Id"+cartId);
+				carList.push({carId:cartId,carNum:null,weChatNum:null,productId:null})
 			}
 		}
+		$.ajax({
+			url: "http://localhost/shoppingCar/delete",
+			type: 'post',
+			contentType:'application/json',
+			dataType:'json',
+			async:true,
+			data:JSON.stringify(carList),
+			success: function (data) {
+				console.log(data.code);
+			}
+		});
 	
 }
 
 
 //添加数量后台修改
-function add(obj,n){
-	var em=obj.parent().parent().children("em").eq(0);
-	var cartId=em.attr("cart_id");
-	http://mock-api.com/NnX5vwKy.mock/add
-	
-	
-//获取 cartId 和数量更新购物车里的数量
-//	$.ajax({
-//		type:"get",
-//		url:"",
-//		async:true
-//	});
-	alert(cartId);
-	alert("+更新数量"+n);
-	
+function add(obj,n) {
+	var em = obj.parent().parent().children("em").eq(0);
+	var cartId = em.attr("cart_id");
+	var shoppingCar={carId:cartId,carNum:n,weChatNum:null,productId:null};
+		$.ajax({
+			url: "http://localhost/shoppingCar/upNum",
+			type: 'post',
+			contentType:'application/json',
+			dataType:'json',
+			async:true,
+			data:JSON.stringify(shoppingCar),
+			success: function (data) {
+				console.log(data.code);
+			}
+		});
 }
+
+
 
 //减少数量后台修改
 function sub(obj,n){
 	var em=obj.parent().parent().children("em").eq(0);
 	var cartId=em.attr("cart_id");
-	http://mock-api.com/NnX5vwKy.mock/sub
+	var shoppingCar={carId:cartId,carNum:n,weChatNum:null,productId:null};
 	//获取 cartId 和数量更新购物车里的数量
-	alert(cartId);
-	alert("-更新数量"+n);
+	$.ajax({
+		url: "http://localhost/shoppingCar/upNum",
+		type: 'post',
+		contentType:'application/json',
+		dataType:'json',
+		async:true,
+		data:JSON.stringify(shoppingCar),
+		success: function (data) {
+			console.log(data.code);
+		}
+	});
 }
