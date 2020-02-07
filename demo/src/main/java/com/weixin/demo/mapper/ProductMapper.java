@@ -8,6 +8,6 @@ public interface ProductMapper {
     int insertSelective(Product record);
 
     //根据id查询商品对象
-    Product selectProduct(Integer productId);
+    Product selectById(Integer productId);
 
 }

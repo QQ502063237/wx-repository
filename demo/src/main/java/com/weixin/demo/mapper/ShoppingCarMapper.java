@@ -18,6 +18,6 @@ public interface ShoppingCarMapper {
     List<ShoppingCar> optionList(List<ShoppingCar> shoppingCarList);
 
     //根据用户id查询所有购物车数据
-    List<ShoppingCar> findById(Vip vip);
+    List<ShoppingCar> byWeChatNum(Vip vip);
 
 }

@@ -38,8 +38,8 @@ public class ShoppingServiceImp implements ShoppingService {
     }
 
     @Override
-    public List<ShoppingCar> findById(Vip vip) {
-       return shoppingCarMapper.findById(vip);
+    public List<ShoppingCar> byWeChatNum(Vip vip) {
+       return shoppingCarMapper.byWeChatNum(vip);
     }
 
 

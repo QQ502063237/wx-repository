@@ -10,33 +10,25 @@
     <result column="wechat_num" jdbcType="VARCHAR" property="weChatNum" />
   </resultMap>
 
-  <!--连接商品表和商品图片表查询-->
-  <resultMap id="carAll" type="com.weixin.demo.entity.car.ShoppingCar">
+  <!--查询该微信号下的所有,购物车信息,连接商品表和商品图片表查询-->
+  <resultMap id="catAll" type="com.weixin.demo.entity.car.ShoppingCar">
     <!--@mbg.generated-->
     <!--@Table shopping_car-->
-    <result column="car_id" jdbcType="INTEGER" property="carId" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="car_num" jdbcType="INTEGER" property="carNum" />
-    <result column="wechat_num" jdbcType="VARCHAR" property="weChatNum" />
-    <association property="product" javaType="com.weixin.demo.entity.product.Product">
-      <result column="product_id" jdbcType="INTEGER" property="productId" />
-      <result column="product_name" jdbcType="VARCHAR" property="productName" />
-      <result column="product_type" jdbcType="VARCHAR" property="productType" />
-      <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
-      <result column="product_money" jdbcType="DECIMAL" property="productMoney" />
-    </association>
-    <association property="productImg" javaType="com.weixin.demo.entity.productimg.ProductImg" >
-      <result column="product_img_id" jdbcType="INTEGER" property="productImgId" />
-      <result column="product_id" jdbcType="INTEGER" property="productId" />
-      <result column="product_url" jdbcType="VARCHAR" property="productUrl" />
+    <id column="car_id" property="carId"/>
+    <result column="product_id"  property="productId" />
+    <result column="car_num"  property="carNum" />
+    <!--商品详情表,传入商品类型id-->
+    <association property="product"  select="com.weixin.demo.mapper.ProductMapper.byId" column="product_id">
+  </association>
+    <!--商品图片表,传入商品类型id-->
+    <association property="productImg"  select="com.weixin.demo.mapper.ProductImgMapper.byId" column="product_id" >
     </association>
   </resultMap>
 
 
   <!--根据用户,链表查询购物车全部数据-->
-  <select id="findById" parameterType="com.weixin.demo.entity.vip.Vip" resultMap="carAll" >
-   select * from shopping_car LEFT JOIN product on product.product_id=shopping_car.product_id
-LEFT JOIN product_img ON product_img.product_id=shopping_car.product_id WHERE shopping_car.wechat_num=#{wechatNum}
+  <select id="byWeChatNum" parameterType="com.weixin.demo.entity.vip.Vip" resultMap="catAll" >
+    select *from shopping_car where shopping_car.wechat_num=#{wechatNum}
   </select>
 
 

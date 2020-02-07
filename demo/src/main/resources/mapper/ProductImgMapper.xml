@@ -8,6 +8,7 @@
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_url" jdbcType="VARCHAR" property="productUrl" />
   </resultMap>
+
   <insert id="insert" parameterType="com.weixin.demo.entity.productimg.ProductImg">
     <!--@mbg.generated-->
     insert into product_img (product_img_id, product_id, product_url
@@ -41,4 +42,8 @@
       </if>
     </trim>
   </insert>
+  
+  <select id="byId" parameterType="int" resultMap="BaseResultMap" >
+    select * from product_img where product_id=#{productId}
+  </select>
 </mapper>

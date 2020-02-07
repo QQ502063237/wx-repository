@@ -39,14 +39,13 @@ public class CartController {
 
     //查询该用户购物车所有数据
     @RequestMapping(value = "getData",method = RequestMethod.GET)
-//    public String getData(@RequestBody Vip vip){
-        public String getData(){
+    public String getData(@RequestBody Vip vip){
         //获取微信号
-//        String weChatNum = vip.getWechatNum();
+        String weChatNum = vip.getWechatNum();
         //查询该微信下所有购物车信息
         Vip vip1 = new Vip();
         vip1.setWechatNum("1");
-        List<ShoppingCar> gwc = shoppingService.findById(vip1);
+        List<ShoppingCar> gwc = shoppingService.byWeChatNum(vip1);
         System.out.println("进入方法");
         System.out.println("数据是"+gwc.toString());
 
@@ -130,7 +129,7 @@ public class CartController {
             int carNum=optionList.get(i).getCarNum();
             BigDecimal num = new BigDecimal(carNum);
             //商品单价
-            BigDecimal price = productService.selectProduct(productId).getProductMoney();
+            BigDecimal price = productService.selectById(productId).getProductMoney();
             //单个和
             BigDecimal sum = price.multiply(num);
             //求全部金额

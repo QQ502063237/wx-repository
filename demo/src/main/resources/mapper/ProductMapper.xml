@@ -56,8 +56,13 @@
     </trim>
   </insert>
 
-  <!--根据商品id查询商品对象-->
-  <select id="selectProduct" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <!--查询商品对象-->
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select * from product where #{productId}
+  </select>
+
+  <!--购物车查询调用-->
+  <select id="byId" parameterType="int" resultMap="BaseResultMap">
+    select * from product where product_id=#{productId}
   </select>
 </mapper>

@@ -12,7 +12,7 @@ public class ProductServiceImp implements ProductService {
 
     //传入id查询商品
     @Override
-    public Product selectProduct(Integer productId) {
-       return productMapper.selectProduct(productId);
+    public Product selectById(Integer productId) {
+       return productMapper.selectById(productId);
     }
 }
