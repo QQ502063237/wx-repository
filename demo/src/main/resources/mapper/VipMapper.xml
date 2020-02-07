@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weixin.demo.mapper.VipMapper">
+  <resultMap id="BaseResultMap" type="com.weixin.demo.entity.vip.Vip">
+    <!--@mbg.generated-->
+    <!--@Table vip-->
+    <id column="vip_id" jdbcType="INTEGER" property="vipId" />
+    <result column="wechat_num" jdbcType="VARCHAR" property="wechatNum" />
+    <result column="ex_point" jdbcType="INTEGER" property="exPoint" />
+    <result column="point" jdbcType="INTEGER" property="point" />
+    <result column="lv_id" jdbcType="INTEGER" property="lvId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    vip_id, wechat_num, ex_point, point, lv_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from vip
+    where vip_id = #{vipId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from vip
+    where vip_id = #{vipId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weixin.demo.entity.vip.Vip">
+    <!--@mbg.generated-->
+    insert into vip (vip_id, wechat_num, ex_point, 
+      point, lv_id)
+    values (#{vipId,jdbcType=INTEGER}, #{wechatNum,jdbcType=VARCHAR}, #{exPoint,jdbcType=INTEGER}, 
+      #{point,jdbcType=INTEGER}, #{lvId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weixin.demo.entity.vip.Vip">
+    <!--@mbg.generated-->
+    insert into vip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vipId != null">
+        vip_id,
+      </if>
+      <if test="wechatNum != null">
+        wechat_num,
+      </if>
+      <if test="exPoint != null">
+        ex_point,
+      </if>
+      <if test="point != null">
+        point,
+      </if>
+      <if test="lvId != null">
+        lv_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vipId != null">
+        #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="wechatNum != null">
+        #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="exPoint != null">
+        #{exPoint,jdbcType=INTEGER},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=INTEGER},
+      </if>
+      <if test="lvId != null">
+        #{lvId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weixin.demo.entity.vip.Vip">
+    <!--@mbg.generated-->
+    update vip
+    <set>
+      <if test="wechatNum != null">
+        wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="exPoint != null">
+        ex_point = #{exPoint,jdbcType=INTEGER},
+      </if>
+      <if test="point != null">
+        point = #{point,jdbcType=INTEGER},
+      </if>
+      <if test="lvId != null">
+        lv_id = #{lvId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where vip_id = #{vipId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weixin.demo.entity.vip.Vip">
+    <!--@mbg.generated-->
+    update vip
+    set wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      ex_point = #{exPoint,jdbcType=INTEGER},
+      point = #{point,jdbcType=INTEGER},
+      lv_id = #{lvId,jdbcType=INTEGER}
+    where vip_id = #{vipId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--根据微信号查询对象-->
+  <select id="selectByWeChatNum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from vip where  wechat_num=#{weChatNum}
+  </select>
+</mapper>

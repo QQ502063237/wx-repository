@@ -3,6 +3,8 @@ package com.weixin.demo.controller;
 
 import com.weixin.demo.entity.car.ShoppingCar;
 import com.weixin.demo.entity.order.Order;
+import com.weixin.demo.entity.vip.Vip;
+import com.weixin.demo.service.orderService.OrderService;
 import com.weixin.demo.service.productService.ProductService;
 import com.weixin.demo.service.shoppingService.ShoppingService;
 import com.weixin.demo.service.vipService.VipService;
@@ -27,8 +29,29 @@ public class CartController {
 
     @Autowired
     private ProductService productService;
+    
     @Autowired
     private VipService vipService;
+
+    @Autowired
+    private OrderService orderService;
+
+
+    //查询该用户购物车所有数据
+    @RequestMapping(value = "getData",method = RequestMethod.GET)
+//    public String getData(@RequestBody Vip vip){
+        public String getData(){
+        //获取微信号
+//        String weChatNum = vip.getWechatNum();
+        //查询该微信下所有购物车信息
+        Vip vip1 = new Vip();
+        vip1.setWechatNum("1");
+        List<ShoppingCar> gwc = shoppingService.findById(vip1);
+        System.out.println("进入方法");
+        System.out.println("数据是"+gwc.toString());
+
+        return  gwc.toString();
+    }
 
 
 
@@ -71,7 +94,7 @@ public class CartController {
             //获取订单对象
             Order order = getOrder(optionList);
             //插入订单数据
-
+            int i = orderService.insertOrder(order);
             //详情:详情id,订单号,商品id,商品数量
 
 

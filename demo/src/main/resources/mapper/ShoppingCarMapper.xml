@@ -10,6 +10,36 @@
     <result column="wechat_num" jdbcType="VARCHAR" property="weChatNum" />
   </resultMap>
 
+  <!--连接商品表和商品图片表查询-->
+  <resultMap id="carAll" type="com.weixin.demo.entity.car.ShoppingCar">
+    <!--@mbg.generated-->
+    <!--@Table shopping_car-->
+    <result column="car_id" jdbcType="INTEGER" property="carId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="car_num" jdbcType="INTEGER" property="carNum" />
+    <result column="wechat_num" jdbcType="VARCHAR" property="weChatNum" />
+    <association property="product" javaType="com.weixin.demo.entity.product.Product">
+      <result column="product_id" jdbcType="INTEGER" property="productId" />
+      <result column="product_name" jdbcType="VARCHAR" property="productName" />
+      <result column="product_type" jdbcType="VARCHAR" property="productType" />
+      <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+      <result column="product_money" jdbcType="DECIMAL" property="productMoney" />
+    </association>
+    <association property="productImg" javaType="com.weixin.demo.entity.productimg.ProductImg" >
+      <result column="product_img_id" jdbcType="INTEGER" property="productImgId" />
+      <result column="product_id" jdbcType="INTEGER" property="productId" />
+      <result column="product_url" jdbcType="VARCHAR" property="productUrl" />
+    </association>
+  </resultMap>
+
+
+  <!--根据用户,链表查询购物车全部数据-->
+  <select id="findById" parameterType="com.weixin.demo.entity.vip.Vip" resultMap="carAll" >
+   select * from shopping_car LEFT JOIN product on product.product_id=shopping_car.product_id
+LEFT JOIN product_img ON product_img.product_id=shopping_car.product_id WHERE shopping_car.wechat_num=#{wechatNum}
+  </select>
+
+
 
   <insert id="insert" parameterType="com.weixin.demo.entity.car.ShoppingCar">
     <!--@mbg.generated-->
@@ -66,12 +96,12 @@
     </foreach>
   </delete>
     <!--查询包含id的对象-->
-    <select id="optionList" parameterType="arraylist" resultType="com.weixin.demo.entity.car.ShoppingCar">
-        select * from shopping_car where car_id in
-        <foreach collection="list" open="(" separator="," close=")" item="car">
-            #{car.carId}
-        </foreach>
-    </select>
+  <select id="optionList" parameterType="arraylist" resultType="com.weixin.demo.entity.car.ShoppingCar">
+      select * from shopping_car where car_id in
+      <foreach collection="list" open="(" separator="," close=")" item="car">
+          #{car.carId}
+      </foreach>
+  </select>
 
 
 </mapper>

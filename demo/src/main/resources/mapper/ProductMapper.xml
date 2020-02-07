@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weixin.demo.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.weixin.demo.entity.product.Product">
+    <!--@mbg.generated-->
+    <!--@Table product-->
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_type" jdbcType="VARCHAR" property="productType" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="product_money" jdbcType="DECIMAL" property="productMoney" />
+  </resultMap>
+  <insert id="insert" parameterType="com.weixin.demo.entity.product.Product">
+    <!--@mbg.generated-->
+    insert into product (product_id, product_name, product_type, 
+      product_desc, product_money)
+    values (#{productId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, 
+      #{productDesc,jdbcType=VARCHAR}, #{productMoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weixin.demo.entity.product.Product">
+    <!--@mbg.generated-->
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+      <if test="productDesc != null">
+        product_desc,
+      </if>
+      <if test="productMoney != null">
+        product_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="productMoney != null">
+        #{productMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+
+  <!--根据商品id查询商品对象-->
+  <select id="selectProduct" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from product where #{productId}
+  </select>
+</mapper>

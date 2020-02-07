@@ -64,4 +64,15 @@ public class Product {
     public void setProductMoney(BigDecimal productMoney) {
         this.productMoney = productMoney;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productType='" + productType + '\'' +
+                ", productDesc='" + productDesc + '\'' +
+                ", productMoney=" + productMoney +
+                '}';
+    }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weixin.demo.mapper.ProductImgMapper">
+  <resultMap id="BaseResultMap" type="com.weixin.demo.entity.productimg.ProductImg">
+    <!--@mbg.generated-->
+    <!--@Table product_img-->
+    <result column="product_img_id" jdbcType="INTEGER" property="productImgId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_url" jdbcType="VARCHAR" property="productUrl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.weixin.demo.entity.productimg.ProductImg">
+    <!--@mbg.generated-->
+    insert into product_img (product_img_id, product_id, product_url
+      )
+    values (#{productImgId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{productUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weixin.demo.entity.productimg.ProductImg">
+    <!--@mbg.generated-->
+    insert into product_img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productImgId != null">
+        product_img_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productUrl != null">
+        product_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productImgId != null">
+        #{productImgId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productUrl != null">
+        #{productUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
