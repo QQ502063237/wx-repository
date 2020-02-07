@@ -2,9 +2,9 @@ package com.weixin.demo.service.shoppingService;
 
 
 import com.weixin.demo.entity.car.ShoppingCar;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 public interface ShoppingService {
     //更新数量

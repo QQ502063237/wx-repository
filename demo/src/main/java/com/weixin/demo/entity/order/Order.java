@@ -1,5 +1,7 @@
 package com.weixin.demo.entity.order;
 
+import java.math.BigDecimal;
+
 public class Order {
     private Integer orderId;
 
@@ -16,7 +18,7 @@ public class Order {
     /**
     * 订单金额
     */
-    private Long orderMoney;
+    private BigDecimal orderMoney;
 
     private Integer userId;
 
@@ -44,11 +46,11 @@ public class Order {
         this.orderTime = orderTime;
     }
 
-    public Long getOrderMoney() {
+    public BigDecimal getOrderMoney() {
         return orderMoney;
     }
 
-    public void setOrderMoney(Long orderMoney) {
+    public void setOrderMoney(BigDecimal orderMoney) {
         this.orderMoney = orderMoney;
     }
 
