@@ -17,9 +17,10 @@
     <id column="car_id" property="carId"/>
     <result column="product_id"  property="productId" />
     <result column="car_num"  property="carNum" />
+    <result column="wechat_num" jdbcType="VARCHAR" property="weChatNum" />
     <!--商品详情表,传入商品类型id-->
     <association property="product"  select="com.weixin.demo.mapper.ProductMapper.byId" column="product_id">
-  </association>
+    </association>
     <!--商品图片表,传入商品类型id-->
     <association property="productImg"  select="com.weixin.demo.mapper.ProductImgMapper.byId" column="product_id" >
     </association>
@@ -87,8 +88,11 @@
       #{car.carId}
     </foreach>
   </delete>
+
+
+
     <!--查询包含id的对象-->
-  <select id="optionList" parameterType="arraylist" resultType="com.weixin.demo.entity.car.ShoppingCar">
+  <select id="optionList" parameterType="arraylist" resultMap="BaseResultMap">
       select * from shopping_car where car_id in
       <foreach collection="list" open="(" separator="," close=")" item="car">
           #{car.carId}

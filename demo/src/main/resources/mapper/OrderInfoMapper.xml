@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weixin.demo.mapper.OrderInfoMapper">
+  <resultMap id="BaseResultMap" type="com.weixin.demo.entity.orderinfo.OrderInfo">
+    <!--@mbg.generated-->
+    <!--@Table order_info-->
+    <id column="order_info_id" jdbcType="INTEGER" property="orderInfoId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_num" jdbcType="VARCHAR" property="productNum" />
+    <result column="logistics" jdbcType="VARCHAR" property="logistics" />
+    <result column="order_info_1" jdbcType="VARCHAR" property="orderInfo1" />
+    <result column="order_info_2" jdbcType="VARCHAR" property="orderInfo2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    order_info_id, order_number, product_id, product_num, logistics, order_info_1, order_info_2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from order_info
+    where order_info_id = #{orderInfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from order_info
+    where order_info_id = #{orderInfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="order_info_id" keyProperty="orderInfoId" parameterType="com.weixin.demo.entity.orderinfo.OrderInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order_info (order_number, product_id, product_num, 
+      logistics, order_info_1, order_info_2
+      )
+    values (#{orderNumber,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, #{productNum,jdbcType=VARCHAR}, 
+      #{logistics,jdbcType=VARCHAR}, #{orderInfo1,jdbcType=VARCHAR}, #{orderInfo2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="order_info_id" keyProperty="orderInfoId" parameterType="com.weixin.demo.entity.orderinfo.OrderInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productNum != null">
+        product_num,
+      </if>
+      <if test="logistics != null">
+        logistics,
+      </if>
+      <if test="orderInfo1 != null">
+        order_info_1,
+      </if>
+      <if test="orderInfo2 != null">
+        order_info_2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productNum != null">
+        #{productNum,jdbcType=VARCHAR},
+      </if>
+      <if test="logistics != null">
+        #{logistics,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo1 != null">
+        #{orderInfo1,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo2 != null">
+        #{orderInfo2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weixin.demo.entity.orderinfo.OrderInfo">
+    <!--@mbg.generated-->
+    update order_info
+    <set>
+      <if test="orderNumber != null">
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productNum != null">
+        product_num = #{productNum,jdbcType=VARCHAR},
+      </if>
+      <if test="logistics != null">
+        logistics = #{logistics,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo1 != null">
+        order_info_1 = #{orderInfo1,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo2 != null">
+        order_info_2 = #{orderInfo2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_info_id = #{orderInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weixin.demo.entity.orderinfo.OrderInfo">
+    <!--@mbg.generated-->
+    update order_info
+    set order_number = #{orderNumber,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=INTEGER},
+      product_num = #{productNum,jdbcType=VARCHAR},
+      logistics = #{logistics,jdbcType=VARCHAR},
+      order_info_1 = #{orderInfo1,jdbcType=VARCHAR},
+      order_info_2 = #{orderInfo2,jdbcType=VARCHAR}
+    where order_info_id = #{orderInfoId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

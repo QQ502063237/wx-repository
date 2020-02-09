@@ -9,7 +9,11 @@
     <result column="product_type" jdbcType="VARCHAR" property="productType" />
     <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
     <result column="product_money" jdbcType="DECIMAL" property="productMoney" />
+    <result column="create_time" javaType="date" property="createTime"/>
+    <result column="product_num" javaType="integer" property="productNum"/>
+    <result column="product_status" javaType="integer" property="productStatus"/>
   </resultMap>
+
   <insert id="insert" parameterType="com.weixin.demo.entity.product.Product">
     <!--@mbg.generated-->
     insert into product (product_id, product_name, product_type, 
@@ -17,6 +21,7 @@
     values (#{productId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, 
       #{productDesc,jdbcType=VARCHAR}, #{productMoney,jdbcType=DECIMAL})
   </insert>
+
   <insert id="insertSelective" parameterType="com.weixin.demo.entity.product.Product">
     <!--@mbg.generated-->
     insert into product
@@ -58,7 +63,7 @@
 
   <!--查询商品对象-->
   <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select * from product where #{productId}
+    select * from product where product_id=#{productId}
   </select>
 
   <!--购物车查询调用-->

@@ -9,6 +9,7 @@
     <result column="ex_point" jdbcType="INTEGER" property="exPoint" />
     <result column="point" jdbcType="INTEGER" property="point" />
     <result column="lv_id" jdbcType="INTEGER" property="lvId" />
+    <result column="create_time" javaType="date" property="createTime"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->

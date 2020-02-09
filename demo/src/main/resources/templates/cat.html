@@ -74,7 +74,8 @@
 			/*获取全部数据渲染方法*/
 			function getData(){
 					$.ajax({
-					    url : "http://mock-api.com/NnX5vwKy.mock/getData",
+					    // url : "http://mock-api.com/NnX5vwKy.mock/getData",
+						url : "http://localhost/shoppingCar/getData",
 					    type : 'GET',
 					    dataType : 'json',
 					    data:{name1:"name1"},
@@ -88,16 +89,16 @@
 					      	var str="";
 					         $.each(list, function(idx, obj) {
 					         	str=str+
-					         	'<li class="select">'+'<em aem="0" cart_id="'+obj.cartId+'"></em>'+
-					         		'<img src="'+obj.url+'" />'+
+					         	'<li class="select">'+'<em aem="0" cart_id="'+obj.carId+'"></em>'+
+					         		'<img src="'+obj.productUrl+'" />'+
 					         			'<div class="div_center">'+
-											'<h4>'+obj.name+'</h4>'+
+											'<h4>'+obj.productName+'</h4>'+
 //											<span>微辣</span>
 											'<p class="now_value"><i>￥</i><b class="qu_su">'+obj.money+'</b></p>'+
 										'</div>'+
 										'<div class="div_right">'+
 											'<i onclick="reducew(this)">-</i>'+
-											'<span class="zi">'+obj.number+'</span>'+
+											'<span class="zi">'+obj.carNum+'</span>'+
 											'<input type="hidden" value="84">'+
 											'<i onclick="plusw(this)">+</i>'+
 										'</div>'+

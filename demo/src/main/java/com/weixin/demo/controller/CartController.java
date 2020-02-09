@@ -1,10 +1,13 @@
 package com.weixin.demo.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.weixin.demo.entity.car.ShoppingCar;
 import com.weixin.demo.entity.carresult.CarResult;
 import com.weixin.demo.entity.order.Order;
+import com.weixin.demo.entity.orderinfo.OrderInfo;
 import com.weixin.demo.entity.vip.Vip;
+import com.weixin.demo.service.orderInfoService.OrderInfoService;
 import com.weixin.demo.service.orderService.OrderService;
 import com.weixin.demo.service.productService.ProductService;
 import com.weixin.demo.service.shoppingService.ShoppingService;
@@ -36,6 +39,9 @@ public class CartController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private OrderInfoService orderInfoService;
 
 
     //根据微信号,查询该用户购物车所有数据
@@ -96,33 +102,44 @@ public class CartController {
     @RequestMapping(value = "account",method = RequestMethod.POST)
     @Transactional
     public  Result account(@RequestBody List<ShoppingCar> shoppingCarList){
+        Result result = new Result("202", "failed", null, null);
         //提交被选中购物车id数据,生成订单
         List<ShoppingCar> optionList = shoppingService.optionList(shoppingCarList);
-        System.out.println("数据是"+shoppingCarList.toString()+"查询的数据是"+optionList.toString());
-
         //判空,选中数据>0条
         if(optionList.size()>0){
-            //删除购物车
-            int flag = shoppingService.deleteCarId(optionList);
             //获取订单对象
             Order order = getOrder(optionList);
             //插入订单数据
-            int i = orderService.insertOrder(order);
-            //状态表:插入数据
+            int orderFlag = orderService.insertOrder(order);
+            //删除购物车
+            int flag = shoppingService.deleteCarId(optionList);
+            //一个订单对应多个详情:生成订单详情
+            ArrayList<OrderInfo> orderInfos = new ArrayList<>();
+            for (int j=0;j<optionList.size();j++){
+                //商品id
+                Integer productId=optionList.get(j).getProductId();
+                //商品数量
+                Integer productNum=optionList.get(j).getCarNum();
+                //添加订单详情集合
+                orderInfos.add(new OrderInfo(null,order.getOrderNumber(),productId,productNum+"",null,null,null));
 
-            //详情表:详情id,订单号,商品id,商品数量
-
-
-
-
-
+            }
+            //插入详情集合数据
+            System.out.println(orderInfos.toString());
+            int orderInfoFlag = orderInfoService.insertList(orderInfos);
+            result.setCode(orderInfoFlag>0?"200":"202");
+            result.setMessage(orderInfoFlag>0? "succeed":"failed");
+            result.setObject(orderInfoFlag>0? order:null);
         }
-
-
-        return null;
+        System.out.println(result.toString());
+        return result;
     }
 
-    //创建订单对象
+
+
+
+
+    //创建订单对象 方法
     public Order getOrder(List<ShoppingCar> optionList){
         //每一个购物车有微信号属性
         String weChatNum = optionList.get(0).getWeChatNum();
@@ -162,7 +179,7 @@ public class CartController {
         order.setStatuId(0);
         return order;
     }
-    //创建订单详情对象
+
 
 
 
