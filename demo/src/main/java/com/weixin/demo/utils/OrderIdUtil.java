@@ -17,7 +17,7 @@ public class OrderIdUtil {
         // 0 代表前面补充0
         // 4 代表长度为4
         // d 代表参数为正数型
-        return machineId + String.format("%015d", hashCodeV)+"_"+weChatNum+getTime();
+        return machineId + String.format("%015d", hashCodeV)+"_"+getTime()+weChatNum;
     }
 
 

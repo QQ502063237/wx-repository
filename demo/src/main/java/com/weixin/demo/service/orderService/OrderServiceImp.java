@@ -12,6 +12,7 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public int insertOrder(Order order) {
+        System.out.println("Imp"+order.toString());
         int flag = orderMapper.insert(order);
         return flag;
     }

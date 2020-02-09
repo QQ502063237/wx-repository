@@ -2,6 +2,7 @@ package com.weixin.demo.controller;
 
 
 import com.weixin.demo.entity.car.ShoppingCar;
+import com.weixin.demo.entity.carresult.CarResult;
 import com.weixin.demo.entity.order.Order;
 import com.weixin.demo.entity.vip.Vip;
 import com.weixin.demo.service.orderService.OrderService;
@@ -37,19 +38,29 @@ public class CartController {
     private OrderService orderService;
 
 
-    //查询该用户购物车所有数据
+    //根据微信号,查询该用户购物车所有数据
     @RequestMapping(value = "getData",method = RequestMethod.GET)
-    public String getData(@RequestBody Vip vip){
+    public Result getData(){
+        Result result = new Result("202", "failed", null, null);
+        Vip vip = new Vip();
+        vip.setWechatNum("weixin123");
         //获取微信号
         String weChatNum = vip.getWechatNum();
-        //查询该微信下所有购物车信息
-        Vip vip1 = new Vip();
-        vip1.setWechatNum("1");
-        List<ShoppingCar> gwc = shoppingService.byWeChatNum(vip1);
-        System.out.println("进入方法");
-        System.out.println("数据是"+gwc.toString());
-
-        return  gwc.toString();
+        //查询该微信下所有购物车信息(假设微信号是weixin123)
+        List<ShoppingCar> cars = shoppingService.byWeChatNum(vip);
+        List<CarResult> carList = new ArrayList();
+        for (int i=0;i<cars.size();i++){
+            cars.get(i).getCarId();
+            carList.add(new CarResult(cars.get(i).getCarId(),cars.get(i).getProduct().getProductType(),
+                    cars.get(i).getWeChatNum(),cars.get(i).getCarNum(),cars.get(i).getProduct().getProductName(),cars.get(i).getProductImg().getProductUrl(),
+                    cars.get(i).getProduct().getProductMoney(),cars.get(i).getProduct().getProductDesc()));
+        }
+        if(carList!=null&&carList.size()>0){
+            result.setList(carList);
+            result.setMessage("succeed");
+            result.setCode("200");
+        }
+        return  result;
     }
 
 
@@ -81,12 +92,15 @@ public class CartController {
     }
 
 
-    //提交结算,生成订单,删除购物车,生成订单,同一事物
+    //提交结算,生成订单,删除购物车,同一事物
     @RequestMapping(value = "account",method = RequestMethod.POST)
     @Transactional
     public  Result account(@RequestBody List<ShoppingCar> shoppingCarList){
-        //查询
+        //提交被选中购物车id数据,生成订单
         List<ShoppingCar> optionList = shoppingService.optionList(shoppingCarList);
+        System.out.println("数据是"+shoppingCarList.toString()+"查询的数据是"+optionList.toString());
+
+        //判空,选中数据>0条
         if(optionList.size()>0){
             //删除购物车
             int flag = shoppingService.deleteCarId(optionList);
@@ -94,7 +108,12 @@ public class CartController {
             Order order = getOrder(optionList);
             //插入订单数据
             int i = orderService.insertOrder(order);
-            //详情:详情id,订单号,商品id,商品数量
+            //状态表:插入数据
+
+            //详情表:详情id,订单号,商品id,商品数量
+
+
+
 
 
         }
@@ -105,10 +124,10 @@ public class CartController {
 
     //创建订单对象
     public Order getOrder(List<ShoppingCar> optionList){
-        //获取微信号
+        //每一个购物车有微信号属性
         String weChatNum = optionList.get(0).getWeChatNum();
         //获取用户号
-        Integer userId = vipService.selectByWeChatNum(weChatNum).getVipId();
+        Integer vipId = vipService.selectByWeChatNum(weChatNum).getVipId();
         //创建订单号
         String orderNumber = OrderIdUtil.getId(weChatNum);
         //创建订单时间
@@ -139,7 +158,8 @@ public class CartController {
         order.setOrderNumber(orderNumber);
         order.setOrderTime(orderTime);
         order.setOrderMoney(multiply);
-        order.setUserId(userId);
+        order.setVipId(vipId);
+        order.setStatuId(0);
         return order;
     }
     //创建订单详情对象

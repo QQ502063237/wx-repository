@@ -1,5 +1,7 @@
 package com.weixin.demo.entity.vip;
 
+import java.util.Date;
+
 public class Vip {
     /**
     * id
@@ -25,6 +27,14 @@ public class Vip {
     * 会员等级id
     */
     private Integer lvId;
+
+    /**
+     *
+     * 创建时间
+     */
+    private Date createTime;
+
+
 
     public Integer getVipId() {
         return vipId;
@@ -64,5 +74,13 @@ public class Vip {
 
     public void setLvId(Integer lvId) {
         this.lvId = lvId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

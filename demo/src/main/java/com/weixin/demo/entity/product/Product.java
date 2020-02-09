@@ -1,6 +1,7 @@
 package com.weixin.demo.entity.product;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Product {
     private Integer productId;
@@ -25,44 +26,87 @@ public class Product {
     */
     private BigDecimal productMoney;
 
+    /**
+     * 创建时间
+     *
+     */
+    private Date createTime;
+
+    /**
+     * 数量
+     * @return
+     */
+    private  Integer productNum;
+
+    /**
+     * 状态
+     * @return
+     */
+    private  Integer productStatus;
+
+
     public Integer getProductId() {
         return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
     }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public String getProductType() {
         return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
     }
 
     public String getProductDesc() {
         return productDesc;
     }
 
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc;
-    }
-
     public BigDecimal getProductMoney() {
         return productMoney;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public Integer getProductNum() {
+        return productNum;
+    }
+
+    public Integer getProductStatus() {
+        return productStatus;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public void setProductDesc(String productDesc) {
+        this.productDesc = productDesc;
+    }
+
     public void setProductMoney(BigDecimal productMoney) {
         this.productMoney = productMoney;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public void setProductNum(Integer productNum) {
+        this.productNum = productNum;
+    }
+
+    public void setProductStatus(Integer productStatus) {
+        this.productStatus = productStatus;
     }
 
     @Override
@@ -73,6 +117,9 @@ public class Product {
                 ", productType='" + productType + '\'' +
                 ", productDesc='" + productDesc + '\'' +
                 ", productMoney=" + productMoney +
+                ", createTime=" + createTime +
+                ", productNum=" + productNum +
+                ", productStatus=" + productStatus +
                 '}';
     }
 }
